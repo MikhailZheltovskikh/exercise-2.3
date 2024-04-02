@@ -5,21 +5,25 @@ export const App = () => {
 	const NUMS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 	const OPERATOR = [
 		{
+			id: 1,
 			action: 'add',
 			content: '+',
 			func: (number1, number2) => number1 + number2,
 		},
 		{
+			id: 2,
 			action: 'subtract',
 			content: '-',
 			func: (number1, number2) => number1 - number2,
 		},
 		{
+			id: 3,
 			action: 'multiply',
 			content: '*',
 			func: (number1, number2) => number1 * number2,
 		},
 		{
+			id: 4,
 			action: 'divide',
 			content: '÷',
 			func: (number1, number2) => number1 / number2,
@@ -61,6 +65,7 @@ export const App = () => {
 						<button
 							className={styles['key--operator']}
 							data-action={item.action}
+							key={item.id}
 							onClick={() => {
 								setIsClicked(false);
 								setOperator(item.content);
@@ -72,6 +77,7 @@ export const App = () => {
 
 					{NUMS.map((number) => (
 						<button
+							key={number}
 							onClick={() => {
 								setIsClicked(false);
 								if (operator === '') {
